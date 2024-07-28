@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply  bg-main text-slate-700 dark:bg-dark-main dark:text-slate-300;
+}
+.card {
+  @apply bg-white dark:bg-dark-card rounded-lg border dark:border-hover-color;
+}
+
+.card-bordered {
+  @apply border dark:border-hover-color;
+}
+
+.mobile-modal.open,
+.filter-modal.open,
+.mobile-dialog.open,
+.filter-dialog.open {
+  @apply translate-x-0 pointer-events-auto opacity-100;
+}
+
+.filter {
+  @apply flex-align-center gap-x-2 bg-white dark:bg-dark-card my-1 md:mt-0 px-4 py-2 card-shadow dark:shadow-none md:shadow-none rounded-lg w-full;
+}
+
+.filter-modal {
+    @apply fixed w-full h-full top-0 left-0 bg-black/50 z-10 opacity-0 pointer-events-none transition-a md:static md:opacity-100 md:pointer-events-auto md:bg-transparent;
+  }
+  
+  .filter-dialog {
+    @apply absolute  p-3 md:p-0 bg-white dark:bg-dark-card h-screen max-w-[300px] -translate-x-[500px] w-full max-h-screen overflow-auto transition-a md:static md:max-w-full md:translate-x-0 md:max-h-fit md:h-fit md:bg-main md:dark:!bg-dark-main;
+  }
+
+  /* Check box & radio box */
+.input-check label,
+.input-radio label {
+  @apply relative cursor-pointer flex items-center text-slate-500 select-none;
+}
+
+.input-check input[type="checkbox"],
+.input-radio input[type="radio"] {
+  @apply cursor-pointer opacity-0 absolute;
+}
+
+.input-check label::before {
+  content: "";
+  @apply w-4 h-4 mr-2 rounded border border-primary;
+}
+
+.input-check input[type="checkbox"]:checked + label::before {
+  content: "✔";
+  color: white;
+  @apply grid place-items-center text-white text-[0.7rem] bg-primary  !important;
+}
